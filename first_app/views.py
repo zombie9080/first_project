@@ -4,7 +4,7 @@ from datetime import datetime,timedelta
 
 # Create your views here.
 def index(request):
-    return render_to_response('index.html',{'value':'hello'})
+	return render_to_response('index.html',{'value':'hello','mima':'123456'})
     #return render_to_response('index.html')
 
 

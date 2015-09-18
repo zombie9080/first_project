@@ -2,10 +2,16 @@
 {% load extra_tags %}
 <body>
 <p>
-{{ value | cut:'l'}}
 INDEX
+<p/>
+{{ value | cut:'l'}}
 </p>
 It works!
+<p/>
+{{ mima | md5 }}
+<br>
+点击量{% start 7 %}
+<hr>
 {% current_time "%Y-%m-%d %H:%M:%S" %}
 </body>
 </html>

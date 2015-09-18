@@ -27,9 +27,20 @@ class Author(models.Model):
     qq = models.CharField(max_length=15)
     def __unicode__(self):
         return self.name
+
+class BookManager(models.Manager):
+	def get_book_count(self,keyword):
+		return self.filter(title__icontains=keyword).count()
+class PythonManager(models.Manager):
+	def get_query_set(self):
+		return super(PythonManager,self).get_query_set().filter(title_icontains='python')
+
 class Book(models.Model):
-    title = models.CharField(max_length=100)
-    authors = models.ManyToManyField(Author)
-    publisher = models.ForeignKey(Publisher)
-    def __unicode__(self):
-        return self.title
+	title = models.CharField(max_length=100)
+	authors = models.ManyToManyField(Author)
+	publisher = models.ForeignKey(Publisher)
+	objects = BookManager()
+	python_objects = PythonManager()
+	def __unicode__(self):
+		return self.title
+
