@@ -1,8 +1,33 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from datetime import datetime,timedelta
+from django.views.generic.list import ListView
+from .models import *
+from django.core.cache import cache
+from django.views.decorators.cache import cache_page
 
 # Create your views here.
+
+class BookListView(ListView):
+	template_name = 'listview.html'
+	model = Book
+	#queryset = Book.objects.filter(title__icontains='django')
+	if cache.get('book'):
+		queryset = cache.get('book')
+	else:
+		queryset = Book.objects.filter(title__icontains='django')
+		cache.set('book',queryset)
+	def get_context_data(self,**kwargs):
+		context = super(BookListView,self).get_context_data(**kwargs)
+		return context
+
+@cache_page(60*2)
+def cachepages(request):
+	pub = Publisher.objects.all()
+	return render_to_response('cachepage.html',{'publishers':pub})
+	
+
+
 def index(request):
 	return render_to_response('index.html',{'value':'hello','mima':'123456'})
     #return render_to_response('index.html')
