@@ -1,3 +1,4 @@
+
 """
 Django settings for first_project project.
 
@@ -88,6 +89,12 @@ DATABASES = {
     }
 }
 
+# memory cache
+#CACHE_BACKEND = 'memcache://127.0.0.1:12111/'
+# database cache
+CACHE_BACKEND = 'db://mycache'
+# file cache
+#CACHE_BACKEND = 'file:///usr/local/tmp'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

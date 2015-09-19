@@ -16,15 +16,14 @@ Including another URLconf
 from django.conf.urls import include, url, patterns
 from django.contrib import admin
 from first_app.views import *
-from django.views.generic import TemplateView
-#from first_app.models import *
+from django.views.generic import TemplateView 
 #from django.views.generic.list import ListView
+#from first_app.models import *
 
 #booklist = {
-#    'queryset': Book.objects.all(),        
-#    'template_name':   'listview.html', 
-#}
-
+#			'queryset': Book.objects.all(),
+#			'template_name': 'listview.html'
+#		}
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -37,7 +36,8 @@ urlpatterns += patterns('',
     (r'^hello2/$',hello,{'template_name': 'hello2.html'}),
     (r'^hello3/$',hello_nest(hello3)),
     (r'^hello4/$',hello_nest(hello4)),
-    (r'^genericview/$',TemplateView.as_view(template_name='genericview.html')),
-    #(r'^listview/$',ListView.as_view(**booklist)),
+    (r'^templateview/$',TemplateView.as_view(template_name='templateview.html')),
+    #(r'^listview$',ListView.as_view(**booklist)),
     (r'^listview/$',BookListView.as_view()),
+    (r'^cachepages/$',cachepages),
 )

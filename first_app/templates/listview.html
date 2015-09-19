@@ -1,6 +1,16 @@
 {% extends 'hello_base.html' %}
 {% block content %}
-	{% for book in object_list %}
-	<p>{{book.title}}</p>
-	{% endfor %}
-{% endblock%}
+listview
+<table>
+<tr>
+		<td>title</td>
+		<td>publisher</td>
+</tr>
+{% for bk in object_list %}
+<tr>
+		<td>{{bk.title}}</td>
+		<td>{{bk.publisher}}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

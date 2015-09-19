@@ -1,0 +1,17 @@
+{% extends 'hello_base.html' %}
+{% block content %}
+publisher
+<hr/>
+<table>
+<tr>
+		<td>name</td>
+		<td>address</td>
+</tr>
+{% for pub in publishers %}
+<tr>
+		<td>{{pub.name}}</td>
+		<td>{{pub.address}}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
