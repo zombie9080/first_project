@@ -1,0 +1,6 @@
+{% extends 'hello_base.html' %}
+{% block content %}
+	{% for book in object_list %}
+	<p>{{book.title}}</p>
+	{% endfor %}
+{% endblock%}

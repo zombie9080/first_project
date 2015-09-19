@@ -1,12 +1,22 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from datetime import datetime,timedelta
+from .models import *
+from django.views.generic.list import ListView
 
 # Create your views here.
-def index(request):
-	return render_to_response('index.html',{'value':'hello','mima':'123456'})
-    #return render_to_response('index.html')
 
+
+def index(request):
+    return render_to_response('index.html',{'value':'hello','mima':'123456'})
+
+def BookListView(ListView):
+    model = Book
+    queryset = Book.objects.filter(title__icontains='python')
+    template_name = 'listview.html'
+    def get_context_data(self,**kwargs):
+        context = super(BookListView,self).get_context_data(**kwargs)
+        return context
 
 
 def current_time(request,timezone):
