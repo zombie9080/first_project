@@ -30,6 +30,7 @@ def cachepages(request):
 	pub = Publisher.objects.all()
 	return render_to_response('cachepage.html',{'publishers':pub})
 	
+<<<<<<< HEAD
 def index(req):
 	hint = ''
 	if req.method == 'POST':
@@ -45,6 +46,12 @@ def index(req):
 	username = req.COOKIES.get('username','')
 	FF = Fileform()
 	return render_to_response('index.html',{'ff':FF,'value':'hello','mima':'123456','username':username,'hint':hint})
+=======
+
+
+def index(request):
+    return render_to_response('index.html',{'value':'hello','mima':'123456'})
+>>>>>>> 4c5505470601dd2469a5ef398dab2ece9f85232c
 
 def current_time(request,timezone):
     print(int(timezone))

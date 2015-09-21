@@ -1,3 +1,7 @@
-*.pyc
-*.swp
+!.gitignore
 
+
+first_project/*.pyc
+first_project/*.swp
+first_app/*.pyc
+first_app/*.swp
