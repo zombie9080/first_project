@@ -1,0 +1,12 @@
+{% extends "hello_base.html" %}
+{% block title %}
+	login
+{% endblock %}
+{% block content %}
+<form method='post'>
+	{{uf.as_p}}
+	{{hint}}
+	<hr/>
+	<input type='submit' value='ok' />
+</form>
+{% endblock %}

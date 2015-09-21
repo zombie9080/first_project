@@ -1,9 +1,15 @@
 <html>
 {% load extra_tags %}
 <body>
-<p>
-INDEX
-<p/>
+	<a href="/firstapp/login/">login</a> | <a href="/firstapp/register/">register</a>
+<p>hello {{username}}<p/>
+<form method='post' enctype='multipart/form-data'>
+	{{ff.as_p}}
+	{{hint}}
+	<input type='submit' value='upload'/>
+</form>
+<hr>
+
 {{ value | cut:'l'}}
 </p>
 It works!
